@@ -1,0 +1,21 @@
+.neumorphism {
+    border-radius: 10px;
+    background: #e6e6e6;
+    box-shadow: inset 8px 8px 16px #a1a1a1,
+        inset -8px -8px 16px #ffffff;
+}
+
+.neumorphismH:hover {
+    filter: brightness(1.1);
+    transition: 300ms;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input[type=number] {
+    -moz-appearance: textfield;
+}

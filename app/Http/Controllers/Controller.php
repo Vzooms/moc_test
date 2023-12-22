@@ -41,15 +41,15 @@ class Controller extends BaseController
     public function register(Request $request)
     {
         $validator = Validator::make($request->all(), [
-            'nama' => 'required',
+            'nama' => 'required|string',
             'email' => 'required|email',
             'handphone' => [
                 'required',
                 'regex:/^[0-9]{10,14}$/'
             ],
-            'provinsi' => 'required',
-            'kabupaten_kota' => 'required',
-            'kecamatan' => 'required',
+            'provinsi' => 'required|string',
+            'kabupaten_kota' => 'required|string',
+            'kecamatan' => 'required|string',
             'password' => [
                 'required',
                 'confirmed',
@@ -60,7 +60,7 @@ class Controller extends BaseController
         ]);
 
         if ($validator->fails()) {
-            return back()->withErrors($validator->errors());
+            return back()->withErrors($validator->errors())->withInput($request->all());
         }
 
         return redirect('/otp')->withInput($request->all());

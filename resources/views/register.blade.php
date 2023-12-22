@@ -9,49 +9,49 @@
                     'text' => 'Nama',
                     'type' => 'nama',
                     'id' => 'nama',
-                    'defValue' => 'nelsen',
+                    'defValue' => old('nama'),
                 ])
                 @include('components.myInputs', [
                     'text' => 'Email',
                     'type' => 'email',
                     'id' => 'email',
-                    'defValue' => 'qwe@qwe.com',
+                    'defValue' => old('email'),
                 ])
                 @include('components.myInputs', [
                     'text' => 'No Handphone',
                     'type' => 'number',
                     'id' => 'handphone',
-                    'defValue' => '6285281321705',
+                    'defValue' => old('handphone'),
                 ])
                 @include('components.myInputs', [
                     'text' => 'Provinsi',
                     'type' => 'text',
                     'id' => 'provinsi',
-                    'defValue' => 'Jakarta',
+                    'defValue' => old('provinsi'),
                 ])
                 @include('components.myInputs', [
                     'text' => 'Kabupaten/Kota',
                     'type' => 'text',
                     'id' => 'kabupaten_kota',
-                    'defValue' => 'Jakarta Pusat',
+                    'defValue' => old('kabupaten_kota'),
                 ])
                 @include('components.myInputs', [
                     'text' => 'Kecamatan',
                     'type' => 'text',
                     'id' => 'kecamatan',
-                    'defValue' => 'Kemayoran',
+                    'defValue' => old('kecamatan'),
                 ])
                 @include('components.myInputs', [
                     'text' => 'Password',
                     'type' => 'password',
                     'id' => 'password',
-                    'defValue' => 'Anggara2002',
+                    'defValue' => old('password'),
                 ])
                 @include('components.myInputs', [
                     'text' => 'Confirm Password',
                     'type' => 'password',
                     'id' => 'password_confirmation',
-                    'defValue' => 'Anggara2002',
+                    'defValue' => old('password_confirmation'),
                 ])
             </div>
             <Button class="neumorphism neumorphismH w-min px-12 py-2 self-center xl:self-end text-2xl font-semibold"

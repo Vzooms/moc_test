@@ -45,7 +45,7 @@ class Controller extends BaseController
             'email' => 'required|email',
             'handphone' => [
                 'required',
-                'regex:/^[0-9]{10,14}$/'
+                'regex:/^62[0-9]{8,12}$/',
             ],
             'provinsi' => 'required|string',
             'kabupaten_kota' => 'required|string',
@@ -63,7 +63,14 @@ class Controller extends BaseController
             return back()->withErrors($validator->errors())->withInput($request->all());
         }
 
-        return redirect('/otp')->withInput($request->all());
+        $text = "123123";
+        $phoneNumber = $request->input('handphone');
+        $response = Http::get("https://wa.ikutan.my.id/send/XjhGkWLRp5sqivC0ya6/$phoneNumber?text=kode OTP anda adalah 123123");
+        if ($response) {
+            return redirect('/otp')->withInput($request->all());
+        }
+
+        return back()->withErrors($validator->errors())->withInput($request->all());
     }
 
     public function logout(Request $request)

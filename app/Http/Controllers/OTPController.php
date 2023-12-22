@@ -22,23 +22,9 @@ class OTPController extends Controller
             return redirect()->back()->withErrors(['errors'=>"To Many Attempts, Wait 5 Minutes"])->withInput($req->all());
         }
 
-        // Implement your WhatsApp API integration here
-        // $text = "kode%20OTP%20anda%20adalah%20123123";
-        // $response = Http::get("https://wa.ikutan.my.id/send/XjhGkWLRp5sqivC0yaT6/$phoneNumber?text=$text");
 
-        // Check the response from the WhatsApp API
-        // print_r($response->JSON());
-        // if ($response->successful()) {
-        //     $responseData = $response;
-        //     print_r("gagal");
-        //     if ($responseData['status'] === 'success') {
-        //         print_r($responseData);
-        //         return "Success";
-        //     }
-        // }
-
-        if ($req->input('otp')== 123123){
-            // Cache::put($attemptsKey, $currentAttempts + 1, now()->addMinutes(5));
+        if ($req->input('otp') == 123123){
+            Cache::put($attemptsKey, $currentAttempts + 1, now()->addMinutes(5));
             User::create([
                 'nama' => $req->input('nama'),
                 'email' => $req->input('email'),
@@ -50,6 +36,7 @@ class OTPController extends Controller
             ]);
             return redirect('/login');
         }
+
 
         return redirect()->back()->withErrors(['errors'=>"Wrong OTP"])->withInput($req->all());
     }
